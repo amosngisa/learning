@@ -7,7 +7,7 @@
 // }
 
 // //send a request
-// request.open("GET", "ajax.txt");
+//request.open("GET", "ajax.txt");
 // request.send();
 
 
