@@ -16,26 +16,6 @@ const str2 = `Hi ${userName}, your balance is ${balance}.`
 console.log("Template literal: ", str2)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //Multi-line Strings
 const regularString = 
 'Hello there! \n' +
