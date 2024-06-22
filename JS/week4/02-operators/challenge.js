@@ -1,3 +1,4 @@
+const numbers = [1,2,3,4,5];
 
 const getMinMaxSum = (numbers) => {
     //destructuring
@@ -25,9 +26,7 @@ const getMinMaxSum = (numbers) => {
 
 };
 
-const numbers = [1,2,3,4,5];
+//let result = getMinMaxSum(numbers)
 
-let result = getMinMaxSum(numbers)
-
-console.log(result);//{min: 1, max: 5, sum: 15}
+console.log(getMinMaxSum(numbers));//{min: 1, max: 5, sum: 15}
 
