@@ -1,10 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import RickyAndMorty from './Hook'
-import './index.css'
+import App from './Route'
+import {BrowserRouter} from 'react-router-dom'//react-router-dom import
+import './App.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RickyAndMorty />
+    <BrowserRouter>
+    <App />
+    </BrowserRouter>
   </React.StrictMode>,
 )
