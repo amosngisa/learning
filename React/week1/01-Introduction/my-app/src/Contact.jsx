@@ -1,10 +1,15 @@
 import Navbar from './Navbar'
+import { useParams } from 'react-router-dom';
 
 const Contact = ()=>{
+    const {id} = useParams();
     return(
         <div>
             <Navbar />
-            <h1>Contact</h1>
+            <br />
+            <h1>Contact Page</h1>
+            <br />
+            <p>User ID: {id}</p>
         </div>
     )
 }
