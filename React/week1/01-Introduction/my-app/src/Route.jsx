@@ -1,18 +1,35 @@
-import {Route, Routes} from 'react-router-dom'
+import {Route, Routes, NavLink} from 'react-router-dom'
+import Request from './Request'
+import Search from './Search'
+import Friends from './Friends'
+import Stranger from './Stranger'
 import Home from './Home'
 import About from './About'
-import Contact from './Contact'
-import ErrorPage from './error-page'
+import {Contact} from './Contact'
+
 import './index.css'
 
 const App = () =>{
 
     return(
         <div className='App'>
+            {/* Creating a navigation link to go from one route to another */}
+
+            <nav>
+                <NavLink to="home">Home</NavLink>
+                <NavLink to="about">About</NavLink>
+                <NavLink to="contact">Contact</NavLink>
+            </nav>
+            
             <Routes>
-                <Route path='/' element={<Home/>} errorElement={<ErrorPage />} />
-                <Route path='/about' element={<About/>} />
-                <Route path='/contact/:id' element={<Contact/>} errorElement={<ErrorPage />} />
+                <Route path='/home' element={<Home />} />
+                <Route path='/about' element={<About />} />
+                <Route path='/contact' element={<Contact />}>
+                    <Route path='search' element={<Search />} />
+                    <Route path='friends' element={<Friends />} />
+                    <Route path='request' element={<Request />} />
+                    <Route path='stranger' element={<Stranger />} />
+                </Route>
             </Routes>
 
         </div>

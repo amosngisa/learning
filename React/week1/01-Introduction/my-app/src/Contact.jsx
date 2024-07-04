@@ -1,17 +1,35 @@
-import Navbar from './Navbar'
-import { useParams } from 'react-router-dom';
+import {NavLink, Outlet} from 'react-router-dom';
 
-const Contact = ()=>{
-    const {id} = useParams();
+export const Contact = ()=>{
     return(
         <div>
-            <Navbar />
-            <br />
-            <h1>Contact Page</h1>
-            <br />
-            <p>User ID: {id}</p>
+            <div className='ContactOption'>
+                <NavLink to="search">Search</NavLink>
+                <NavLink to="friends">Friend</NavLink>
+                <NavLink to="request">Request</NavLink>
+                <NavLink to="stranger">Stranger</NavLink>
+            </div>
+
+            <Outlet />
+
         </div>
     )
 }
 
-export default Contact
+
+export const Contacts = ()=>{
+    return(
+        <div>
+            <div className='ContactOption'>
+                <NavLink to="search">Search</NavLink>
+                <NavLink to="friends">Friend</NavLink>
+                <NavLink to="request">Request</NavLink>
+                <NavLink to="stranger">Stranger</NavLink>
+            </div>
+
+            <Outlet />
+
+        </div>
+    )
+}
+
