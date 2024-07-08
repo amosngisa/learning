@@ -31,6 +31,7 @@ const App = () =>{
                     <Route path='stranger' element={<Stranger />} />
                 </Route>
             </Routes>
+            <br></br>
 
         </div>
     )
