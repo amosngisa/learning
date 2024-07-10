@@ -1,8 +1,15 @@
 import { useCallback, useState } from "react";
 
-const Counter = ({increment}) =>{
-    return <button onClick={increment}>Increase</button>
+const Counter = ({increment, decrement}) =>{
+    return (
+    <div>
+        <button onClick={increment}>Increase</button>
+        <button onClick={decrement}>Decrease</button>
+    </div>
+    
+)
 }
+
 
 const App = () => {
     const [count, setCount] = useState(0);
@@ -10,10 +17,14 @@ const App = () => {
         setCount(c => c + 1)
     }, [setCount])
 
+    const decrement = useCallback(()=>{
+        setCount(c => c - 1)
+    }, [setCount])
+
     return(
         <div>
             <p>Count: {count}</p>
-            <Counter increment={increment} />
+            <Counter decrement={decrement} increment={increment}/>
         </div>
     )
 }
