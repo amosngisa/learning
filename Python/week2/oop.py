@@ -16,8 +16,8 @@ class Students:
         return self.pay
         
         
-staff1 = Students('CEO','Joan', 650000)
+student1 = Students('CEO','Joan', 650000)
 
-staff1.calculatePay()
+student1.calculatePay()
 
-print('$',staff1.pay)
+print(student1)
