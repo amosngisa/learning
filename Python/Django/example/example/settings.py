@@ -54,6 +54,18 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'example.urls'
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'myapp',
+        'USER': 'postgres',
+        'PASSWORD': '.Lemon@me',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+    
+}
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

@@ -1,0 +1,18 @@
+WHat you can do with sql:
+- retrieve data
+-insert records
+-update records
+-delete record(s)
+-create new databases
+-create stored procedures
+
+############################################################################################
+                                SYNTAX
+
+1. Create database - CREATE DATABASE database_name; eg. CREATE DATABASE myapp;
+2. Verify / list database - SHOW DATABASE;  
+3. Replacing DB - CREATE OR REPLACE DATABASE database_name; eg. CREATE OR REPLACE DATABASE myapp;
+4. Deleting a DB - DROP DATABASE database_name; eg. DROP DATABASE myapp;
+5. Renaming DB - ALTER DATABASE old_database_name MODIFY NAME = new_database_name; eg. ALTER DATABASE myapp MODIFY NAME = calories;
+6. Use Database - USE database_name; eg. USE myapp;
+7. Creating table - CREATE TABLE table_name ("column1" "datatype", "column2" "datatype"); eg. CREATE TABLE blog (id INT, name VARCHAR, age INT) 
