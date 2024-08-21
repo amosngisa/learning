@@ -6,10 +6,10 @@ from django.urls import reverse
 class Author(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    email = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)  # Use EmailField for validation
     
     def get_absolute_url(self):
-        return reverse('auth.User', args=[str(self.id)])
+        return reverse('author-detail', args=[str(self.id)])
     
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
@@ -17,9 +17,8 @@ class Author(models.Model):
 
 class Blog(models.Model):
     title = models.CharField(max_length=255)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)  # Linking to Django's built-in User model
     content = models.TextField()
-    # image = models.ImageField(upload_to='static/', blank=True, null=True) 
     date_posted = models.DateTimeField(default=timezone.now)
     last_updated = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=False)
@@ -33,3 +32,12 @@ class Blog(models.Model):
     @classmethod
     def published(cls):
         return cls.objects.filter(is_published=True)
+    
+    
+class Subscriber(models.Model):
+    email = models.EmailField(unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.email
+

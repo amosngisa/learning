@@ -1,5 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Blog
+from .models import Subscriber
+from django.contrib import messages
+from .forms import BlogForm
+
 
 def index(request):
     return render(request, 'index.html')
@@ -12,9 +16,26 @@ def blog_list(request):
     context = {'blogs': blogs}
     return render(request, 'blog.html', context)
 
+def subscriber(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        if Subscriber.objects.filter(email=email).exists():
+            messages.error(request, 'You are already subscribed!')
+        else:
+            subscriber = Subscriber(email=email)
+            subscriber.save()
+            messages.success(request, 'Thank you for subscribing!')
+            return redirect('subscribe')
+        
+    return render(request, 'subscribe.html')
 
 
-# from django.http import HttpResponse
-
-# def welcome(request):
-#     return HttpResponse('Hello world')
+def add_blog(request):
+    if request.method == 'POST':
+        form = BlogForm(request.POST)
+        if form.is_valid():
+            blog = form.save()  
+            return redirect('blog')  
+    else:
+        form = BlogForm()
+    return render(request, 'add_blog.html', {'form': form})
