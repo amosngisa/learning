@@ -3,7 +3,7 @@
 {% block title %} Add Blog {% endblock %}
 
 {% block content %}
-<form method="post" action="{% url 'add_blog' %}" class="max-w-lg mx-auto mt-8 bg-gray-100 p-6 rounded-lg shadow-md">
+<form method="post" action="{% url 'add_blog' %}" class="max-w-lg mx-auto mt-8 bg-gray-100 p-6 rounded-lg shadow-md" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="mb-4">
         <label for="{{ form.author.id_for_label }}" class="block text-gray-700 font-bold mb-2">Author:</label>
@@ -17,6 +17,12 @@
         <label for="{{ form.content.id_for_label }}" class="block text-gray-700 font-bold mb-2">Content:</label>
         {{ form.content }}
     </div>
+
+    <div class="mb-4">
+        <label for="{{ form.image.id_for_label }}" class="block text-gray-700 font-bold mb-2">Image:</label>
+        {{ form.image }}
+    </div>
+
     <div class="mb-4">
         <label for="{{ form.is_published.id_for_label }}" class="block text-gray-700 font-bold mb-2">Publish:</label>
         {{ form.is_published }}

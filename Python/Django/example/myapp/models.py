@@ -2,6 +2,8 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
+import cloudinary.uploader
+from cloudinary.models import CloudinaryField
 
 class Author(models.Model):
     first_name = models.CharField(max_length=100)
@@ -19,6 +21,7 @@ class Blog(models.Model):
     title = models.CharField(max_length=255)
     author = models.ForeignKey(User, on_delete=models.CASCADE)  # Linking to Django's built-in User model
     content = models.TextField()
+    image = CloudinaryField("image",null=True)
     date_posted = models.DateTimeField(default=timezone.now)
     last_updated = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=False)
