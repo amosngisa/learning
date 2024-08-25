@@ -5,8 +5,6 @@ from django.contrib import messages
 from .forms import BlogForm
 
 
-
-
 def index(request):
     return render(request, 'index.html')
 
@@ -37,11 +35,15 @@ def add_blog(request):
         form = BlogForm(request.POST, request.FILES)
         if form.is_valid():
             blog = form.save(commit=False) 
-            blog.save()  # Make sure the save method is called correctly
+            blog.save() 
             return redirect('blog')
         else:
-            print(form.errors)  # Print form errors if any (for debugging)
+            print(form.errors) 
     else:
         form = BlogForm()
 
     return render(request, 'add_blog.html', {'form': form})
+
+def error_404(request, exception):
+
+    return render(request, '404.html')
