@@ -33,7 +33,20 @@ ALLOWED_HOSTS = ['*']
 
 LOGIN_REDIRECT_URL = '/'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = config('EMAIL_BACKEND')
+EMAIL_HOST = config('EMAIL_HOST') 
+EMAIL_PORT = config('EMAIL_PORT') 
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')  
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')  
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+
+# custom user model
+AUTH_USER_MODEL = 'myapp.CustomUser'
+
+AUTHENTICATION_BACKENDS = [
+    'myapp.backends.CustomAuthBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
 
 # Application definition
 
