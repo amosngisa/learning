@@ -4,12 +4,8 @@ from django.urls import path
 
   
 
-urlpatterns =    [  
+urlpatterns = [  
 
-    path('basic/', StudentView.as_view()),  
+    path('basic/', StudentView.as_view())  
 
-    path('basic/<int:id>/', StudentView.as_view()),  
-
-    path('basic/<int:id>/update/', StudentView.as_view())
-    
 ]
