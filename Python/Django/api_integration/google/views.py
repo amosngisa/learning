@@ -10,7 +10,6 @@ import requests
 from drf_yasg.utils import swagger_auto_schema
 import os
 
-
 def fetch_address_details(address):
     base_url = 'https://maps.googleapis.com/maps/api/geocode/json'
     api_key = os.getenv('GOOGLE_API_KEY')
